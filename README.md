@@ -1,4 +1,4 @@
-# Zora Creator Bounty Board
+# Z-Quest Creator Bounty Board
 
 A decentralized commission platform where creators deploy ERC-20 bounty tokens using Zora Coin SDK. Supporters mint these tokens to request custom work, with fulfillment status tracked off-chain via Supabase. Creators deliver content by storing IPFS CIDs in Supabase, maintaining full ownership while eliminating intermediaries.
 
@@ -10,6 +10,20 @@ A decentralized commission platform where creators deploy ERC-20 bounty tokens u
 - **Creator Reputation**: On-demand scoring via Supabase functions
 - **Real-time Updates**: Supabase Realtime for instant status changes
 - **Wallet Integration**: RainbowKit + Wagmi for seamless wallet connections
+
+## Where the Zora Coin SDK is Used
+
+The Zora Coin SDK integration is encapsulated in the file:
+
+- `lib/zoraSDK.ts`: This module wraps all interactions with the Zora Coin SDK, including deploying new ERC-20 bounty tokens, minting tokens for supporters, checking on-chain balances, and handling token transfers. All on-chain token operations throughout the app are routed through this SDK wrapper.
+
+You’ll see this module imported and used in key parts of the app, such as:
+
+- `app/creator/new-bounty/page.tsx` – for deploying new bounty tokens
+- `app/supporter/dashboard/page.tsx` – for handling token transfers and payments
+- Any other feature that requires on-chain token actions
+
+This structure keeps all Zora Coin SDK logic centralized and easy to maintain.
 
 ## 🛠️ Tech Stack
 
